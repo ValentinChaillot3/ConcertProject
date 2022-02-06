@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groupe{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+<a href="band/create"<p>Créer un groupe</p></a>
+    {% for band in list %}
+<div class="card" style="width: 18rem;">
+    <a href="band/{{band.id}}"><img class="card-img-top" src="{{band.picture}}" height="300" width="300" ></a><br>
+<div class="card-body">
+{{ band.name }}<br>
+
+</div>
+</div>
+
+{% endfor %}
+
+
+</div>
+{% endblock %}

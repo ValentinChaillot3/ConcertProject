@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+
+<a href="concert/create"<p>Crée un nouveau concert</p></a>
+{% for one in list %}
+<div class="card text-center">
+<div class="card-header">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Groupe
+    </div>
+    <div class="col-sm">
+      Date
+    </div>
+    <div class="col-sm">
+      Actions
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    {% if one.Band.name is defined and one.Band.name is not null %}
+      {{one.Band.name}}
+    {% else %}
+     <a href="concert/chooseband/{{one.id}}" <button type="button" class="btn btn-primary">Ajouter un groupe</button> </a>
+    {% endif %}
+    </div>
+    <div class="col-sm">
+      {{one.date}}
+    </div>
+    <div class="col-sm">
+      <a href="concert/edit/{{one.id}}" <button type="button" class="btn btn-success">Modifier</button> </a>
+      <a href="concert/delete/{{one.id}}" <button type="button" class="btn btn-danger">Supprimer</button> </a>
+    </div>
+  </div>
+</div>
+
+ 
+</div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

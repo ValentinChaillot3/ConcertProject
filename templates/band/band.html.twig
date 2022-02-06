@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Groupe{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+
+    <div class="card text-center">
+    <div class="card-header">
+  {{ band.name }}
+      </div>
+      <div class="card-body" >
+    <img class="card-img-top" src="../{{band.picture}}"><br>
+
+  </div>
+  </div>
+
+  <div class="card text-center">
+<div class="card-header">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    {% if band.name is defined and band.name is not null %}
+      {{ band.name }}
+    {% endif %}
+    </div>
+    <div class="col-sm">
+    {% for one in band.members %}
+    {{ one.name }}
+    {{ one.FirstName }}
+    {{ one.Job }}
+    <br>
+    {% endfor %}
+    </div>
+    <div class="col-sm">
+      Actions
+      <a href="edit/{{band.id}}" <button type="button" class="btn btn-success">Modifier</button> </a>
+      <a href="delete/{{band.id}}" <button type="button" class="btn btn-danger">Supprimer</button> </a>
+    </div>
+    <a href="../concert/{{ band.id }}"<p>voir concert</p></a>
+  </div>
+</div>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConcertController!{% endblock %}
+
+{% block body %}
+
+<a href="artist/create"<p>Créer un nouvelle artiste</p></a>
+{% for artist in list %}
+<div class="card text-center">
+<div class="card-header">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      Nom
+    </div>
+    <div class="col-sm">
+      Prenom
+    </div>
+    <div class="col-sm">
+      Job
+    </div>
+    <div class="col-sm">
+      Action
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      {{artist.name}}
+    </div>
+    <div class="col-sm">
+      {{artist.FirstName}}
+    </div>
+    <div class="col-sm">
+    {{artist.Job}}
+    </div>
+    <div class="col-sm">
+      <a href="artist/edit/{{artist.id}}" <button type="button" class="btn btn-success">Modifier</button> </a>
+      <a href="artist/delete/{{artist.id}}" <button type="button" class="btn btn-danger">Supprimer</button> </a>
+    </div>
+  </div>
+</div>
+
+ 
+</div>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}
